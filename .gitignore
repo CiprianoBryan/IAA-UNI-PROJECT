@@ -2,3 +2,7 @@ env37/
 images/
 outputSeg/
 Satelite_cbers/
+Other/
+__pycache__/
+.ipynb_checkpoints/
+Dataset/

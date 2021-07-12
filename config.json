@@ -1,0 +1,35 @@
+{
+    "data": {
+        "train_split_size": 0.80
+    },
+    "model": {
+        "conv1": {
+            "in_channel": 12,
+            "out_channel": 128,
+            "kernel_size": 5,
+            "stride": 1
+        },
+        "conv2": {
+            "in_channel": 128,
+            "out_channel": 256,
+            "kernel_size": 5,
+            "stride": 2
+        },
+        "pool": {
+            "stride": 2
+        },
+        "linear1": {
+            "in_features": 1024,
+            "out_features": 150
+        },
+        "dropout": 0.5
+    },
+    "training": {
+        "device": "cpu",
+        "batch_size": 569,
+        "num_epoch": 27,
+        "learning_rate": 0.00001,
+        "momentum": 0.9,
+        "scheduler_step_size": 40
+    }
+}
