@@ -29,7 +29,7 @@ def segmentize (filePath, shape_image):
                 print("\t\tImages div: {}/{}, {}%".format(id + 1, n*m, (id + 1)*100//(n*m)))
             images_div.append(image_div)
             # DELETE
-            if percent == 20:
+            if percent == 40:
                 return images_div
             # DELETE
     return images_div
@@ -62,9 +62,6 @@ def getImages():
             imagesBand = joinBandsRegion(imagesRegion)
             taggedImagesBand = addTag(imagesBand, i)
             totalImages.extend(taggedImagesBand)
-        # DELETE
-        break
-        # DELETE
     print('Total de data input:', len(totalImages))
     print('Dimension data input:', totalImages[0][0].shape)
 
