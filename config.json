@@ -25,9 +25,9 @@
         "dropout": 0.5
     },
     "training": {
-        "device": "cpu",
-        "batch_size": 4,
-        "num_epoch": 10,
+        "device": "cuda",
+        "batch_size": 64,
+        "num_epoch": 5,
         "learning_rate": 0.001,
         "momentum": 0.9,
         "scheduler_step_size": 40

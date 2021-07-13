@@ -29,7 +29,7 @@ def segmentize (filePath, shape_image):
                 print("\t\tImages div: {}/{}, {}%".format(id + 1, n*m, (id + 1)*100//(n*m)))
             images_div.append(image_div)
             # DELETE
-            if percent == 40:
+            if percent == 50:
                 return images_div
             # DELETE
     return images_div
