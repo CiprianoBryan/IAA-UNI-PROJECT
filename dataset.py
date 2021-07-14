@@ -11,7 +11,7 @@ imagesPath = [imagesNotPath, imagesYesPath]
 
 SHAPE = 20
 
-def segmentize (filePath, shape_image):
+def segmentize (filePath, shape_image, percentImages):
     image = cv2.imread(filePath)
     print('\t\tFile Shape:', image.shape)
     height, width, dept = image.shape # (14879, 14498, 3)
@@ -28,10 +28,8 @@ def segmentize (filePath, shape_image):
                 percent += 10
                 print("\t\tImages div: {}/{}, {}%".format(id + 1, n*m, (id + 1)*100//(n*m)))
             images_div.append(image_div)
-            # DELETE
-            # if percent == 40:
-            #     return images_div
-            # DELETE
+            if percent > percentImages:
+                return images_div
     return images_div
 
 def joinBandsRegion(imagesRegion):
@@ -48,7 +46,7 @@ def addTag(imagesBand, label):
         taggedImagesBand.append((imagesBand[i], label))
     return taggedImagesBand
     
-def getImages():
+def getImages(percentImages):
     totalImages = []
     for i in range(2):
         for folder in os.listdir(imagesPath[i]):
@@ -56,7 +54,7 @@ def getImages():
             imagesRegion = []
             for filename in os.listdir(imagesPath[i] + folder):
                 print('\tSegmentize file:', filename)
-                segmentizeImage = segmentize(imagesPath[i] + folder + '/' + filename, SHAPE)
+                segmentizeImage = segmentize(imagesPath[i] + folder + '/' + filename, SHAPE, percentImages)
                 imagesRegion.append(segmentizeImage)
             print('\tJoinBands')
             imagesBand = joinBandsRegion(imagesRegion)
@@ -67,8 +65,8 @@ def getImages():
 
     return totalImages
 
-def download_dataset():
-	dataset = getImages()
+def download_dataset(percentImages=100):
+	dataset = getImages(percentImages)
 	random.shuffle(dataset)
 	return dataset
 
