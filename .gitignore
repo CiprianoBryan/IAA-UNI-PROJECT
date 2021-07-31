@@ -3,3 +3,7 @@ images/
 outputSeg/
 Satelite_cbers/
 otro_algoritmos/
+Other/
+__pycache__/
+.ipynb_checkpoints/
+Dataset/
