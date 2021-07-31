@@ -33,35 +33,8 @@
         "momentum": 0.9,
         "scheduler_step_size": 40
     },
-    "model_SVM": {
-        "model_1": {
-            "in_channel": 12,
-            "out_channel": 128,
-            "kernel_size": 5,
-            "stride": 1
-        },
-        "model_2": {
-            "in_channel": 128,
-            "out_channel": 256,
-            "kernel_size": 5,
-            "stride": 1
-        },
-        "pool": {
-            "stride": 2
-        },
-        "linear1": {
-            "in_features": 1024,
-            "out_features": 2
-        },
-        "dropout": 0.5,
-        "path": "./ConvNet.pth"
-    },
-    "training": {
-        "device": "cpu",
-        "batch_size": 32,
-        "num_epoch": 4,
-        "learning_rate": 0.01,
-        "momentum": 0.9,
-        "scheduler_step_size": 40
+    "SVM":{
+        "device": "gpu"
     }
+
 }
